@@ -1,0 +1,69 @@
+1) Accept a card and check against a PIN
+2) Display the user's balance if the user selects 'balance'
+3) It must ask if a user wants another service (and then respond if they do)
+4) The user must be able to withdraw cash up to their limit (£0)
+5) Withdrawing cash must correctly affect the balance
+
+
+if (user inputs card) {
+  var inputedPin = user inputed pin;
+  if (checkPin(inputedPin)){
+    retrieve data from card();
+    displayOptions();
+    if (user clicks on balance){
+      displayBalance();
+    }
+    if (user clicks on withdraw){
+      withdraw();
+    }
+    if (user clicks exit){
+      eject card;
+    }
+  }
+}
+
+checkPin (inputedPin) {
+  var tries = 3;
+  if (inputedPin === cardPin){
+    return true;
+  }
+  if (inputedPin !=== cardPin && tries > 0){
+    tries -= 1;
+    console.log('false. you have' + tries + 'more tries');
+    inputedPin = user inputed pin;
+  }
+  if (tries <= 0){
+    eject card;
+    return false;
+  }
+}
+
+displayOptions(){
+  console.log('balance');
+  console.log('withdraw');
+  console.log('exit');
+}
+
+otherService(){
+  console.log('would you like another service? Y/N');
+  if (user inputs yes){
+    displayOptions();
+  }
+  if (user inputs no){
+    eject card;
+  }
+}
+
+displayBalance(){
+  console.log(card.balance);
+  otherService();
+}
+
+withdraw(){
+  var ammount = console.userinput.number;
+  if (ammount < card.maxWithdraw){
+    console.withdraw(ammount);
+    card.balance = card.balance - ammount;
+    otherService();
+  }
+}

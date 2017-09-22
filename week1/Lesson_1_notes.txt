@@ -1,0 +1,13 @@
+JavaScript the good bits
+JavaScript WTF
+evolutionoftheweb.com
+seif project
+
+atom shell
+homebrew
+node
+command line power user
+
+avoid concrete - do not write magic values
+Literal is something you only use once and don't remember.
+Eg. return "hi" + name. Name is a variable but "hi" is a literal

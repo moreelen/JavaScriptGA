@@ -1,0 +1,93 @@
+null is a placeholder and expecting a value later - will turn out as false
+(handy for controlling the system) null is an object. type of null = object
+undefined used for everything else - when a computer has no idea what you're taking about
+type of undefined = undefined
+
+strongly typed = if you type something as a string it always stays as a string
+loosely typed = the variable type can change eg. 2+2+"2"=42
+In C we would have to type int age = 32; and that is an int forever.
+In JS we can just loosely define a var age = 32;
+Therefore avoid 'Object Wrappers' and use 'Literals' instead.
+AVOID: var str = new String('Hello');
+YES: var str = 'Hello';
+
+Objects
+When we set a variable we can then put a . after to look at things inside that variable.
+Eg. var num = 2;
+type in num. in the console and it will give you a list of things you can do with that variable.
+A variable is an object. Inside there are a series of tools you can do with that variable.
+Imagine when we get a new phone. The box comes with a phone charger, a sim card, etc.
+That box is an object. It's a bundle with properties and methods/functions to help you manipulate it.
+Eg. var str = 'James';
+str.toUpperCase() gives us JAMES //method - this is a function that is stored
+str.leng = 5 //property - this is a value that is stored
+DOM API is actually a table
+
+Regular Expressions = way to search in a string.
+Eg. if we are looking for the word dog in the string emailString = /dog/;
+
+NaN is an object. If you want to test if a number is a number use isNan().
+Objects like math and number exists already to help you. Type in Math. to do mathsy things.
+Eg. Math.Pi or Math.sin(90)
+window = global object in node and contains everything in the browser.
+See it by typing console.log(window);
+Inside it you will find Math, null, Number, etc.
+false and true are also objects
+Name booleans with is at the front. eg var isDeveloper = false;
+
+Be careful with garbage ollection and loops. You will get a memory leak.
+If you have a loop where the variable doesn't get collected at the end plus you declare it again
+then they all collect and multiply and your laptop will set on fire.
+
+Vars are always public in JavaScript. Let is a variable which is scoped to where you call it.
+const stay the same the same and you can't change it. However you can change subproperties.
+Eg. const age = 39; age = 40 gives error
+but const tutor = { name: 'James', age: 39}; tutor.age = 40 then changes the tutor age to 40.
+
+syntactic sugar
+
+objects are containers of keys. If you touch a key, it does a think and gives the key back.
+Eg. tutor.age goes into the object tutor and grabs the age key.
+This is called a dictionary store.
+Function is an object that can run code.
+
+Method is a function on an object. Eg.
+var rob = {
+  name: 'rob',
+  age: 34,
+  hasbirthday: function(){
+    this.age += 1;
+    return age;
+  }
+}
+If you call rob.hasbrithday() it will return 35 (The () executes the function. Without it it just calls it.)
+
+() = evaluate immideately eg. hasbrithday()
+{} = empty object but if used in the middle of code with nothing then it is a block
+eg. if(){ } that is a block within if.
+
+name = player.name vrs age = player['age']
+Use the [] when you don't know what is coming as the key.
+This is called evaluation.
+
+You can put a function inside a function
+function sayAge(age){
+  return "I am " + age
+} can also be said as
+SayAge(getAge()){}
+This is called resolving into things. Assuming that getAge() will execute and resolve into a number
+which can then be passed onto SayAge() and used.
+tutor[val] resolves into tutor.whateverthevalis
+. notation is faster than []
+
+Arrays really are
+var raceResults = {
+  0: start at zero
+  1: value here
+  2: another value here
+  3: etc.
+}
+Pull out the values with raceREsults[1]
+But they are declared with var raceResults = ['First', 'Second', 'Third']
+
+Method signature tells you how to write in values for methods.
