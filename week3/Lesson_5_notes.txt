@@ -8,3 +8,95 @@ Do not repeat yourself eg:
 { 'James' : { name: 'James' } }
 Correct:
 [ { name: 'James' } ]
+
+Pass an argument to an IIFEE by typing the argument after the function. Eg.
+(function(name){
+  console.log('hello', name);
+}('James'));
+James gets put into name.
+
+function b(){
+
+}
+function a(){
+  b();
+}
+a();
+What this does is it creates a series of scopes.
+b contains (local scope, this, upper scope(which looks at the one below))
+a contains (local scope, this, upper scope(which looks at the one below))
+global contains (global scope, this(which is the window), upper scope(which is empty))
+When a program runs first it does the global then it stops and goes up to a, then it stops and goes up to b.
+It's like handing over responsibility.
+Once b is done it stops and passes down the info to a. Once a is done it stops and passes it down to global.
+
+JavaScript can't do multithreading. It reads one line at a time.
+But what if it's running and someone does something like clicks?
+
+Intro event loops! [{evt}]
+
+Once all the functions are done, event comes in and creates a new a.
+Once that is done, another event can come in.
+
+Closure is referencing something in the upper scope.
+
+
+CONTEXT
+
+var tutor1 = {name: 'james', age:39, checkContext: function(){
+  console.log('this', this;)
+}}
+This would return the object. This is inside the object and calls itself.
+this.name would give the name and looks for it only within the object itself.
+Therefore if we created tutor2, this function would give tutor2's name.
+
+Create lots of objects and they can look at themselves and you don't have to search through everything.
+You can put the same function on all the tutors but this way you only have to type it once.
+
+var tutor2 = {name: 'pedro', age:39, checkContext: function(){
+  console.log('this', this.name;)
+}}
+You don't have to type tutor1.name and then tutor2.name to get the different names.
+You can just type this for both of them.
+It is also not going to start looking at the upper scope. It just looks at that particular bit.
+
+function Tutor(name, age){
+  this.name = name;
+  this.age = age;
+  this.speak = function(){
+    console.log('Hi my name is ', this.name);
+  }
+} // This is a constructor function. It's a template.
+
+var tutor3 = new Tutor('dave', 39);
+tutor3.speak();
+
+This creates new objects in one go without having to push all the time.
+It's like a cookie cutter.
+
+ASYNCHRONOUS
+
+Means you are leaving a function to the side to wait for a moment to jump in and run.
+codepen.io/jmsherry/pen/BWRdeR
+Once all the functions are done then it comes back to the asynchronous loop and completes it,
+no matter where it was first called.
+Synchronous run in order and the other functions wait for it to be done.
+Asynchronous runs once everything is done.
+Eg. you can't stop all you code just to wait for a user to click.
+Just run all the other code then execute the asynchronous one when the user clicks.
+
+Constructors create objects and make sure that you are not missing things.
+
+The presence of new generates the new object.
+
+There is an object inside an object called a prototype.
+
+Say you have a function that all dogs can do. (eg. sleep and bark) That is the prototype object.
+function Dog(name) { this.name = name }
+Dog.prototype.sleep = function(){ ... return this; }
+benji.talk().sleep();
+
+You can nest prototype objects and create classes. Eg
+prototype of a dog and inside a prototype of a mammal.
+
+slides.com/jmsherry/the-command-line#/
