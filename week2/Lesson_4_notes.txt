@@ -1,0 +1,154 @@
+Function declaration is basic declaration.
+Function expression returns something
+eg var myFunction = function(){}; grabs what it returns and puts it in a var.
+function names are optional in this format so you don't have to type it in after function.
+
+Inside a function there are arguments and variables.
+fucntion func1(){
+  console.log(arguments);
+}
+func1('str', true, false);
+Returns 'str', true, false.
+
+
+function function1() {
+
+}
+//declares a function
+
+var func2 = function(fn) {
+  fn();
+}
+// expresses a function which takes in a function for the purposes of that function called fn
+
+func1('James');
+// executes func1 with James.
+func2(func1);
+// executes func2 with func1 replacing fn.
+
+
+function fn(){}
+
+fn //does not execute it
+fn() //execues it
+
+So you can put fn inside a function without executing it.
+Or you can execute it inside a function parameter and the following function will use the result of the first one.
+
+
+function func1() {
+console.log(argument);
+}
+
+var func2 = function (fn) {
+  var age = 32;
+  fn(age);
+  return {
+    name: 'James',
+    age:age
+  }
+}
+
+func1('James');
+var me = func2(func1);
+console.log(me.age); //displays 32
+
+console.log(func1('James')); //returns undefined because we haven't put return inside the function.
+
+There is actually a function called = hence when we type test = 4 what we are really saying is:
+grab value test and value 4 into a function called =.
+
+
+
+
+function* is a es6 generator function. They return more than once.
+=> does a copy of what is around it and binds it.
+
+() works like in maths saying which operation to do first.
+
+IIFE runs instantly. can use it to keep things private from the user.
+function(){}() doesn't work becuase its being defined with nothing before its being executed. To fix it:
+( function(){} () ) or
+( function(){} ) ();
+(//look at and evaluate immediately function(){} //declares a function () // executes the function)
+
+Currying allows you to run the function when all data is collected.
+Eg.
+function greeting( name ) {
+
+    return function sayMyname( lastname ) {
+        console.log( name + lastname );
+    }
+}
+
+greeting('pedro')('martin')
+
+function is actual contsruct.
+method is a function stored on an object.
+
+var me = {
+  firstname: 'james',
+  secondname: 'sherry',
+  getFullName: function(){     // this is a method becuase it is a function in an object.
+    return this.firstname + ' ' + this.secondname;
+  }
+}
+
+fn() is short hand for fn.call();
+
+greet.call(thisarg // defintes the world in which you want to execute, 'a', 'b')
+is the same as function greet(){} but in this one we don't define the world we want it to look it
+it assumes the world is .this.
+
+greet.apply(thisarg, ['a', 'b']) // defines the number of arrays available. The usual is infinite.
+
+When functions are called they create a world around them. If they are asynchronus, it will not copy the world around it.
+bind says take notes of everything around this function so when it is called somewhere else it remembers things.
+
+KNOW WHAT AN IIFE IS!
+Recognise sequence execution
+jQuery requires chain functions
+
+
+ERROR HANDLING
+function myfunc(){
+  throw new Error('broken');
+}
+
+new creates a new object.
+
+// try must always come with catch after
+try {
+  myfunc();
+} catch (error) {
+  console.log(error.message); //new Error constructor have messages in it. in this case 'broken'
+} finally {
+  // this will always run and is optional. use this for nested try functions.
+}
+
+If we don't use try catch, the programme just stops if there is an error. This way it can still continue.
+There is a way to do if statemnts in catch but it is not reliable.
+
+window (
+
+  fn1 (
+    var b
+    fn2 (
+      var a
+) ) )
+
+if you call var b inside fn2 it looks for it in fn2 if it cant find it it goes to fn1 and then window.
+Think of it like minas tirith from lord of the rings
+If there are two called the same thing in different scopes, it looks at the innermost one where it is called first then looks out.
+single responsibility principle - all functions should only do one thing.
+If using multiple functions using the same data make sure that data is in the global scope.
+
+A var in fn1 called in fn2. the one in fn2 is a COPY of the one in fn1
+
+First javascript looks through code reserves memory then it looks through it again and executes.
+Which means you can call a function execution before you actually define what it is.
+This is called HOISTING.
+
+function myFunction(){} might give an undefined error because you are not setting a variable
+var function = myFunction() will not give an undefined error because you already allocated memory for the var.
+Do not pollute the global name space!

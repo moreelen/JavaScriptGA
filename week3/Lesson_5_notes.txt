@@ -1,0 +1,10 @@
+Objects inside an array. A friend is an object and a group of friends is an array.
+To search through do:
+myArray.forEach(function(item){ ... })
+
+Concretion vrs abstraction.
+
+Do not repeat yourself eg:
+{ 'James' : { name: 'James' } }
+Correct:
+[ { name: 'James' } ]
