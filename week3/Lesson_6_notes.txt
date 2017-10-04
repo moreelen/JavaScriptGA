@@ -1,0 +1,46 @@
+Defensive check makes sure you don't use a value that is not usable in a statement.
+Declare the if statement inside a function that checks it:
+function doSomething(person) {
+  if (!person) return; // this is the defensive check
+  ...
+}
+
+If you're repeating yourself - refractor! Take out the things that are repeated and turn it into a function.
+Your code should only do one thing very well. Get the if else to decide on one thing only.
+
+You can put expressions in switch statements (case thing > 4: case 'b': ... ; break;)
+You can choose not to put a break and keep the code checking through the statements.
+Fallthrough advised against.
+Use switch for specific cases.
+
+In a for loop you don't have to end the first statement with var i = 0;
+You can add more variables like var i = 0, var j = 0, ... ;
+
+For in operates inside keys of an object.
+var scores = {a: 1, b: 2, c: 3};
+for (var score in scores) {
+  console.log('scores.' + score + '=' + scores[score]);
+}
+Output:
+"scores.a = 1"
+"scores.b = 2"
+"scores.c = 3"
+score is the same as the i in a for loop (i = 0; i < 5; i++)
+
+Use this to check through object keys only in the first prototype, not sub prototypes.
+Eg. a dog has certain properties but it has also properties of a mammal.
+Use this to check only the dog properties and not the mammal properties.
+
+Set timeout into a variable so you can restart it.
+var timer = setTimeout(function({}), 3000);
+clearTimeout(timer);
+
+Dates
+getDate, getTimecode, get..., setDate, set..
+January is month 0 not 1.
+
+Moment.js use this library to work with dates better.
+Also moment-timezone.js
+
+Regular Expresions are a way to find a pattern in a string. Badly implemented in JS.
+Flags i = case insensitive, g = global continue to find it.
