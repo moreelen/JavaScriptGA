@@ -100,3 +100,33 @@ You can nest prototype objects and create classes. Eg
 prototype of a dog and inside a prototype of a mammal.
 
 slides.com/jmsherry/the-command-line#/
+
+vim index.js
+esc :wq
+npm creates a json in which you can have a list of the packages you use in your program.
+It's like a list of libraries that you can call up.
+https://www.npmjs.com/
+npm install (name of library eg lodash)
+it will automatically download the file so you don't have to go on github yourself and manually install.
+npm i -S (lodash) creates a dependency in the package.json file. Does this automatically in v5 or higher.
+
+When you put something on github you don't put up the libraries too.
+When someone downloads your project, they type npm install and it installs all the libraries it needs.
+
+Eg.
+> node_modules
+> libs //this gets uploaded to git
+>> sem.js // uploaded
+> index.js // uploaded
+> package.json // is a list of node_modules content
+
+Someone else git clones what is uploaded.
+Then they do npm install and it looks at what is in package.json.
+That command pulls down node_modules listed in package.json.
+
+node is the engine you run. type it into the command line to run the environment.
+type node and then a file to run that file in the environment.
+npm is a command that pulls software from somewhere and runs on top of node.
+
+to use a package throughout (eg install a recycle bin): npm install -g (name of package eg trash)
+it installs it globally.
