@@ -43,25 +43,22 @@ console.log(totalAge);
 
 /* 4. Create a function which returns an object showing how many male and female
 friends you have. (I don't support a gender binary, this is just for exercise)*/
-var genders = {
-  male: 0,
-  female: 0
-}
-
-var countGender = function(friendNumber) {
-  if (friends[friendNumber].gender === 'male'){
-    genders.male += 1;
+var countGender() {
+  var genders = {
+    male: 0,
+    female: 0
   }
-  else if (friends[friendNumber].gender === 'female'){
-    genders.female += 1;
+  for (j=0; j < friends.length; j += 1) {
+    if (friends[j].gender === 'male'){
+      genders.male += 1;
+    }
+    else if (friends[j].gender === 'female'){
+      genders.female += 1;
+    }
+    return genders;
   }
 }
-
-for (j=0; j < friends.length; j += 1) {
-  countGender(j);
-}
-
-console.log(genders);
+console.log(countGender());
 
 // 5. Create a function which allows you to add a friend
 var addFriend = function() {
