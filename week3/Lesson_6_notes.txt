@@ -44,3 +44,6 @@ Also moment-timezone.js
 
 Regular Expresions are a way to find a pattern in a string. Badly implemented in JS.
 Flags i = case insensitive, g = global continue to find it.
+
+.gitignore makes git ignore a list of files such as node_modules, dist, .DS_Store.
+.eslint tells you if you're writing good or bad code.
