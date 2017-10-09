@@ -3,10 +3,10 @@ var prompt = require('prompt');
 
 var schema = {
   properties: {
-    username: {
+    cardNo: {
       required: true
     },
-    password: {
+    pin: {
       hidden: true,
       replace: '*'
     }
@@ -18,26 +18,29 @@ prompt.start(); // Lets you prompt the user for info
 // Dummy Users
 var Users = [
   {
-    username: 'Dummy',
-    password: 'Sup3rS3cur3',
+    name: 'Shad',
+    cardNo: '123456789',
+    pin: '1234',
     tries: 3,
     balance: 150
   },
   {
-    username: 'Rosa',
-    password: 'SoSecure',
+    name: 'Rosa',
+    cardNo: '987654321',
+    pin: '9876',
     tries: 3,
     balance: 500
   },
   {
-    username: 'Sims',
-    password: 'Motherloader',
+    name: 'Sim',
+    cardNo: 'Sims',
+    pin: 'Motherloader',
     tries: 3,
     balance: 1000000
   }
 ]
-var username = null;
-var password = null;
+var cardNo = null;
+var pin = null;
 var user = null;
 
 // User inputs username and password. Check login.
@@ -50,9 +53,9 @@ function login(){
       if (err) { // Handle error
           return err;
       }
-      username = result.username;
-      password = result.password;
-      checkUser(username);
+      cardNo = result.cardNo;
+      pin = result.pin;
+      checkUser(cardNo);
       if (user !== null) {
         checkPassword();
       }
@@ -65,7 +68,7 @@ function login(){
 
 function checkUser(inputUsername){
   for(i = 0; i < Users.length; i++) {
-    if (Users[i].username === inputUsername) {
+    if (Users[i].cardNo === inputUsername) {
       user = i;
       return user;
     }
@@ -73,8 +76,8 @@ function checkUser(inputUsername){
 }
 
 function checkPassword(){
-  if (password !== Users[user].password){
-    console.log('Did not recognise password.');
+  if (pin !== Users[user].pin){
+    console.log('Incorrect pin.');
     Users[user].tries -=1;
     if (Users[user].tries > 0) {
       console.log('You have ' + Users[user].tries + ' tries left.');
@@ -85,7 +88,7 @@ function checkPassword(){
     }
   }
   else {
-    console.log('Welcome ' + Users[user].username);
+    console.log('Welcome ' + Users[user].name);
     mainMenu();
   }
 }
