@@ -1,0 +1,66 @@
+Client Server Relationships
+90% of what JavaScript does is this.
+
+Mongo is a database. Install it.
+Data < > Server <|> Client
+Server side script creates a server.
+How do you send things up and down a wire into the client machine.
+
+7 Layer OSI model - CISCO
+Form physical wires to how to send information - packets of data.
+TCP and UDP ensures packets are correct.
+We focus on the data layer.
+Cables > Routers > Servers
+
+HTTPS send and receive data via APIs and such
+FTPs sending things to servers
+SMTP - mailing people
+Web Sockets - chat programme
+SSH - login into someone elses servers via command line - horoku
+very useful but very advanced
+TEL, SMS, skype, telnet, IRC, etc.
+
+HTTP requests
+Some requests have no body eg GET.
+You do a request by looking at a string and it returns data in a JSON file.
+<protocol><domain>'/users' -GET-> script returns JSON [{}{}]
+?p= is the parameters in a URL.
+<protocol><domain>'/users?id=1' -GET-> script returns JSON {}
+
+Sometimes you want to send a request that returns private information.
+This secure lock where private information is kept is a request body.
+POST is like GET but with a body where you can store private information.
+
+PUT is for updating things.
+DELETE didn't used to have a request body so it doesn't usually work.
+It is a signal to delete something but the actual delete happens in the server.
+It triggers a function in there that actually deletes it.
+
+Headers are a list of key pair values eg Authentication, Data type
+(Oh by the way treat the data like this...)
+It is to make sure that when we make a request to the server it goes smoothly
+and the server knows what they are meant to do.
+
+Don't use PATCH. Use PUT.
+
+You mix your URL and your METHOD (GET, PUT, POST, etc) to trigger a function in the server.
+Eg. use get on the following URL...
+
+curl returns the code in the command line eg curl www.google.com
+Postman mocks up the requests, pinging your server.
+
+JSONplaceholder.typ/code.com
+Test doing requests on this site
+
+Create Replace Update Delete CRUD
+
+Express is a server framework. Someone wrote a server for you. It's a library.
+
+JSON object turns objects into JSON and back to use it onthe internet.
+
+var tutor = {
+  name: 'James',
+  age: 39
+}
+JSON.stringify(tutor) turns it into a JSON file (a string)
+JSON.parse(tutor) turns it back into a JavaScript object.

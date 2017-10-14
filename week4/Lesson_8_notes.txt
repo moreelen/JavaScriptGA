@@ -1,0 +1,68 @@
+Services
+Request a thing to a server and the service returns a result. A bit like a function but online.
+Picsum is a service which changes the dimensions of an image for you.
+FOAAS - fuck off as a service - change variables in URL to put the words in the string
+
+SOA - service orientated architecture
+Microservices which come off the server into other servers.
+In the main server the script calls up those microservices from other servers.
+Eg. getVids.from(video)
+You can only get from these, not change anything within it.
+
+APIs - you can change records and enact events
+REST - representational state transfer - share the state of being between client and server
+Eg. the state of a basket in an online shopping website.
+On the server there is a session { basket: [object, object] }
+When user clicks on client side, it updates the variable basket in the session object in the server.
+The more we can do on the client side without calling the server the better
+because calling HTTPs is expensive. So in comes things like AJAX.
+Things evolved from: Static > AJAX > SPA (Reakt)
+jmsherry.github.io/ajax-templating/#APIS
+
+path vrs parameters = different way of calling data.
+Path better for calling one set of data. Parameters better for searching bulk data.
+
+Website is a brochure. Web app is a programme.
+
+Lodash big library of functions. Call it up by using _ which is actually var _ = { ... }
+Same as jQuery.hide() ==> $( ... ).hide();
+
+Persistence, making sure the data isn't lost when the programm stops running.
+Databases help us do this! So many databases. Most popular: Redis, MongoDB, Progress.
+SQL (works better with php) vrs noSQL (works better with express).
+ElasticSearch searches through things rapidly.
+
+Mongoose controlls Mongo.
+To start mongo type: mongod <== NOTE THE D!
+For a command line interface type: mongo
+Robomongo makes a lot of the inferface nicer.
+Everything gets an object id and a version. (_id and _v)
+http://mongoosejs.com/docs/
+Remember to start the server by running mongod on a separate command tab!
+
+Talking to servers is async therefore use mongoose.Promise (but now with ES6 it is standard)
+
+codepen.io/jmsherry/pen/LzmbJv
+Promise says data will be there at one point in the future therefore be ready.
+Pass it the ability to resolve or the ability to reject the incoming data.
+Promises have methods such as then and catch. Then is when the data is resolved.
+Eg. fetchingData .then(function(posts) { ... })
+Catch is what happens when it fails.
+.catch(function(posts) { ... })
+Promise has three states: resolved (got data), pending (waiting for data), rejected (did not get data).
+Promise gives an empty box to the code and says: I'm about to fetch you some data. Wait here and hold this.
+Then it goes fetch the data and comes back and puts it in the box and goes: there you go.
+Put it at the beginning so the code knows to wait for that data.
+Promise avoids problems of nesting data callbacks.
+Callback soup, callback hell, pyramid of hell happens if you do not use promise.
+
+Schema is how we save data. Put the keys of what we want and the type of data corresponding.
+var blogSchema = new Schema({
+  title: String,
+  author: String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Data, default: Date.now }
+});
+
+var Blog = mongoose.model('Blog, blogSchema'): States that this is the schema the new data must be styled as.
+If there is anything missing it throws an error. If it is correct, it goes in right.
