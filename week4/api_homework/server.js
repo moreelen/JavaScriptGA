@@ -84,15 +84,14 @@ app.post('/memories', function(req, res) {
 });
 
 // Delete a memory.
-/* app.delete('/memories/:id', function(req, res) {
-  var memoryDeleted = req.params.id;
-  var newMemories = _.reject(memories, { '_id': memoryDeleted });
-  if (memories.length === newMemories.length) {
-    return res.status(404).send('Memory not found.');
-  }
-  memories = newMemories;
-  return res.status(202).send('Memory deleted.');
-}) */
+app.delete('/memories/:id', function(req, res) {
+  memory.remove({ _id: req.params.id }, function (err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.status(202).send('Memory deleted.');
+  });
+});
 
 app.listen(3333, function(){
   console.log('Searching for memories.');
