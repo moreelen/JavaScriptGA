@@ -46,7 +46,7 @@ app.get('/memories', function(req, res) {
 app.get('/memories/:author', function(req, res) {
   memory.find({
     author: req.params.author
-  }).exec(function(err, memories) {
+  }).sort({ age: -1 }).exec(function(err, memories) {
     if (err) {
       return res.status(500).send(err);
     }
@@ -57,11 +57,11 @@ app.get('/memories/:author', function(req, res) {
   });
 });
 
-// Search for a memory by years.
-app.get('/memories', function(req, res) {
+// Search for a memory by a year range.
+app.get('/searchAge', function(req, res) {
   memory.find({
     age: { $gt: req.query.minAge, $lt: req.query.maxAge }
-  }).exec(function(err, memories) {
+  }).sort({ age: 1 }).exec(function(err, memories) {
     if (err) {
       return res.status(500).send(err);
     }
@@ -73,7 +73,7 @@ app.get('/memories', function(req, res) {
 });
 
 // Input a memory.
-app.post('/memories', function(req, res) {
+app.post('/memory', function(req, res) {
   var newMemory = new memory(req.body);
   newMemory.save(function (err, memory){
     if (err) {
@@ -84,7 +84,7 @@ app.post('/memories', function(req, res) {
 });
 
 // Delete a memory.
-app.delete('/memories/:id', function(req, res) {
+app.delete('/memory/:id', function(req, res) {
   memory.remove({ _id: req.params.id }, function (err) {
     if (err) {
       return res.status(500).send(err);
