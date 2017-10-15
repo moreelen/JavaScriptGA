@@ -18,12 +18,21 @@ Eg. /searchAge?minAge=5&maxAge=10 will return all memories between age 5 and 10.
 ###How to input a memory
 **POST /memory**
 Body syntax should look like the following:
-{
-	"author": "AUTHOR NAME HERE",
-	"age": AGE AS A NUMBER,
-	"location": "LOCATION OF MEMORY HERE",
-	"memory": "MEMORY HERE AS A STRING"
+```{
+	"author": "[AUTHOR NAME HERE]",
+	"age": [AGE AS A NUMBER],
+	"location": "[LOCATION OF MEMORY HERE]",
+	"memory": "[MEMORY HERE AS A STRING]"
 }
+```
+Eg.
+```{
+  "author": "Rosa",
+  "age": 25,
+  "location": "London",
+  "memory": "Typing this code."
+}
+```
 
 ###How to delete a memory
 **DELETE /memory/[ID]**
