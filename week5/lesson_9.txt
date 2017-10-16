@@ -1,0 +1,106 @@
+AUTH!
+Use auth between other peoples servers and our own server.
+
+Every time you start node you start a process. Inside it is an environment. Inside it are environment variables.
+Process
+env {
+  env.var
+}
+These variables pass information into the environment and keep information that we don't want others to have access to.
+
+
+You can run three environments at the same time and inject a variable from outside.
+Each enviornment does calls to different databases and you can reroute them.
+
+This is how API keys and API Secrets work. You grab a variable which you inject into the environment.
+A way for the machine to log in itself into an app.
+
+First create an app, generate an API key and API secret. Then create an access Token.
+To get these go to twitter developers and create a new app. (Eg. developer.twitter.com / app.twitter.com)
+
+First inject all the passwords into the environment. Reference them by name.
+
+var client = new Twitter({
+  consumer_key: process.env.TWITTER_API_KEY,
+  consumer_secret: process.env.TWITTER_API_SECRET,
+  access_token_key: ...
+})
+
+You don't have to worry about packets if you use their client method.
+
+Create a .env file to store it. require('dotenv').config(); to scrape that file and turn it into something readable.
+Lots of ways to do it. Mainly trying to make it difficult for a hacker to access those tokens.
+Then create a client
+
+app.get('/tweets', function(req, res){
+  client.get('search/tweets', { q: '#meToo' }, function(error, tweets, response) { ... } )
+})
+
+app.use(express.static(path.join(__dirname + '/public')));
+Public might not be where you think it might be. Tehrefore use __dirname to make sure you don't get lost in the disk.
+https://nodejs.org/api/ - more likely to use express on top of it so might not need to do everything manually.
+
+OAUTH - open authentication - use others authentication service eg Google, Facebook, Twitter.
+You don't need to hold anyone's passwords, Google can hold it for you.
+They check and send you an ok or not ok if it matches or doesn't their records.
+passport.js does the code for you. Install passport facebook, passport google, etc to tell what strategy to use.
+Input --> Local --> Result
+    ________^______
+    FB, TW, LI, GH
+Guide: https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+
+
+JAVASCRIPT IN THE BROWSER
+
+console.log(window) is massive full of things from days gone past. Eg. Web SQL.
+It has to stay there because otherwise old websites might break if we take it away.
+Web SQL replaced by IndexedDB which mimmicks mongoDB.
+Node inspector only works with chrome. But it's flaky so just use the Chrome inspector for now.
+It will get better over time so you will use it but it works exactly like Chrome.
+
+Type document.getElementByTagName('h1'); into the command line in chrome to get all h1s.
+Sources tab shows you what has loaded into the page and look at each of the files.
+To play with it tab into snippets. Create snippets of code to run them in.
+Wise to wrap that code in an IFE (function({...}))(); to stop it colliding with things.
+Pause the programme and inspect things by clicking on the line and running.
+Hover over the variables to see what is inside them. Control them on the right (eg. disactivating it)
+Watch, Call Stack, Scope and Breakpoints. Learn to use them.
+
+Progressive enhancement and Graceful degradation
+If you lose technology you shouldn't lose anything in the page because of it.
+Eg. use CSS to change colours, don't use JavaScript. Have a fallback.
+
+cosole.log.dir makes sure it logs it out as an object which you can navigate rather than a string.
+history.back() makes the browser go back and forth. You can also create a history.
+(Useful when you create a form which doesn't actually move forward and back when you hit next.)
+location. where you currently are. You can location.reload() to relaod the page.
+You can request the navigator for the battery of the device or the geolocation or language.
+
+You can persist data using sessionStorage. IndexDB is a local database.
+localStorage stores it in the pc and sessionStorage stores it in the tab.
+(So you loose it when you close the session.)
+localStorage.setItem('id', 12);
+localStorage.getItem('id'); Returns 12.
+Stores everything as a string. Even numbers are a string!
+
+AJAX replaces postman. It's postman but in the browser.
+document.querySelectorAll() gives an array.
+Don't use onclick, onmousedown on HTML! Use el.addEventListener() instead.
+It binds elements to scripts.
+document.body.addEventListener('click', function(){
+  console.log('hello');
+});
+name of the event it listens for then the function it executes when it happens.
+
+Load your javascript only after the page has finished loading. So start it with:
+window.onload = function(){
+  // your JS here
+}
+
+var stopButton = document.getElementById('stopLightControl'); ELEMENT
+
+stopButton.addEventListener('click', function(){ EVENT
+  EXECUTION
+});
+
+ELEMENT EVENT EXECUTION that is the order of things.
