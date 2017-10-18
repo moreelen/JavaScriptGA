@@ -32,6 +32,11 @@ window.onload = function(){
   var goButton = document.getElementById('goLightControl');
   console.log('goButton', goButton);
 
+  var startButton = document.getElementById('startButton');
+  console.log('startButton', startButton);
+  var haltButton = document.getElementById('stopButton');
+  console.log('haltButton', haltButton);
+
   // LIGHTS
   var lights = document.querySelectorAll(".light");
 
@@ -58,6 +63,18 @@ window.onload = function(){
     addClass(lights[0], 'on');
   }
 
+  function runLights(){
+    turnAllOff();
+    turnOnRed();
+    setTimeout(function(){
+      turnOnYellow();
+    }, 2000);
+    setTimeout(function(){
+      turnAllOff();
+      turnOnGreen();
+    }, 4000);
+  }
+
   // EVENT BINDINGS
   stopButton.addEventListener('click', function(){
     console.log('Stop was clicked');
@@ -75,6 +92,21 @@ window.onload = function(){
     console.log('Go was clicked');
     turnAllOff();
     turnOnGreen();
+  });
+
+var startLights;
+
+  startButton.addEventListener('click', function(){
+    console.log('Start button was clicked');
+    startLights = setInterval(function(){
+      runLights();
+    }, 8000);
+  });
+
+  haltButton.addEventListener('click', function(){
+    console.log('Halt button was clicked');
+    clearInterval(startLights);
+    turnAllOff();
   });
 
 };

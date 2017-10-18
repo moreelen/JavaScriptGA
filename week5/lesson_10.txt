@@ -1,0 +1,34 @@
+jQuery does DOM manipulation and AJAX for you so you don't have to worry.
+
+Content Delivery Network
+cdnjs.com
+Way to reroute common content to other servers so it doesn't load from your tiny server.
+Used for for example jQuery.js, lodash.js, express.js, normalize.css... etc.
+jQuery.min.js gives you the readable version of jQuery.
+
+Semver
+7.82.5
+Major.Minor.Patch
+Patch - Fixed something timely. If you update it's very unlikely it will cause your site to break.
+Minor - Changed functionality but shouldn't cause a break. Keep an eye on it just to make sure.
+Major - Changed something fundamental and your old code is unlikely to work.
+
+api.jquery.com
+onload becomes just $(function(){ ... }); called onDOMReady function.
+sizzle = use css in javascript to select elements.
+Now we've selected. Next comes manipulation.
+You can chain methods! When using jQuery, CHAIN LIKE A BITCH!!
+Don't requery! Don't select the same thing multiple times. Use Caching!
+Save a selection as a variable and call the variable.
+Use a $ sign infront of the variable to remind yourself that you've already masured it.
+var $myDiv = $(#myDiv);
+$myDiv.show()...
+
+add return false at the end of functions to keep things safe. It stops prevent default and event bubbling.
+prevent default to stop the normal behaviour from happening.
+bubbling is the code going back up the DOM telling everything else that it happened.
+
+You can trigger things to happen in the console.
+$('#id').trigger('click')
+
+animate.css adds animations by just adding classes
