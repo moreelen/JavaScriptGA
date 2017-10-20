@@ -57,3 +57,37 @@ var template = Handlebars.complie(source) turns it into a function
 var data = {title: "new html", body: "this is the template"} grabs the data
 var html = template(data) puts the dat in the holes
 insert into the page via $('#targetArea').html(html)
+
+VIDEO
+Script with our server code (server.js). Eg. what happens when we do a GET, POST, etc call.
+Static file serving at the top to call the HTML. app.use(express.static('public'));
+HTML with the form and a refresh button
+A main.js has the ajax calls and binds it with the DOM.
+ajax is exactly the same as postman. have method which is like GET, POST, etc.
+GET is the default so can delete it
+have context which grabs the body and scopes it to the part of the page (instantly plug in)
+have url which is the url (is /cars or /memories)
+Can pull the error handler outside of ajax as a function and put in errorHandler
+into the fail() section.
+Put ajax in function. Bind that button to the code.
+
+Order of JavaScript code:
+Variables, page elements, generated elements, helper functions, event bindings, executing order.
+Do as few DOM operations as possible.
+
+When using POST in jQuery: data: car (car is the object we created)
+
+Delegated event
+When you for example generate a button only after the page has loaded.
+Then the event bindings don't work because they didn't exist on page load.
+Delegated event listning binds an event to an item which already exists.
+Then check if what was clicked inside it matches a selector.
+Eg. $(''.delete-button').on('click.delete', function(){...})
+but the delete button didn't exist and therefore it doesn't work
+$($carsList /* check what existed when the page loaded */)
+.on('click.delete', '.delete-button' /* then check the selector within */ , function(){...})
+It tells carsList: hey if something bubbles past you check that it has the selector string...
+Attach the _id to an HTML tag called data-id="' + cars._id + '".
+In JavaScript you can then call up that data-id tag using .data('id').
+If it was data-age="" then it would be .data('age').
+So you can call up that id in the click with $(this).data('id').
