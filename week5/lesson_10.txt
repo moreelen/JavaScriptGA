@@ -32,3 +32,28 @@ You can trigger things to happen in the console.
 $('#id').trigger('click')
 
 animate.css adds animations by just adding classes
+
+jQuery plugins - call them in the .js file.
+Add all the css at the beginning of html
+Add the bottom of document add:
+1. Include jQuery ONCE!
+2. Plugin script
+3. Your own script
+Then execute in your js file.
+(read the plugin docs and follow their instructions)
+
+Bulma, Foundation
+fontawesome.io 3 - don't use 4! icons
+material.io
+
+https://jmsherry.github.io/ajax-templating/
+Add repeated content. Like the cookie cutter.
+With ES6 you can do templating natively so you might not need to use handlebars anymore
+handebarsjs.com
+<dl><dt>Name</dt><dd>{{name}}</dd>... should sit somewhere at the bottom of the html
+{{}} means data will come in here later. These are the holes
+var source = $(#mytemplate).html() grabs the HTML
+var template = Handlebars.complie(source) turns it into a function
+var data = {title: "new html", body: "this is the template"} grabs the data
+var html = template(data) puts the dat in the holes
+insert into the page via $('#targetArea').html(html)
