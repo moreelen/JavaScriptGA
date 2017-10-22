@@ -83,6 +83,16 @@ app.post('/memory', function(req, res) {
   });
 });
 
+// Update a memory.
+/* app.patch('/updateMemory/:id', function(req, res) {
+  memory.update({ _id: req.params.id }, function (err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.status(202).send('Memory updated.');
+  })
+});*/
+
 // Delete a memory.
 app.delete('/memory/:id', function(req, res) {
   memory.remove({ _id: req.params.id }, function (err) {

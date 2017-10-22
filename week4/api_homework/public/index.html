@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memories</title>
+
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Init materialize -->
+    <link type="text/css" rel="stylesheet" href="styles/materialize.css"  media="screen,projection"/>
+
+    <!-- Init own stylesheet -->
+    <link type="text/css" rel="stylesheet" href="styles/master.css">
+
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo">Memories</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Refresh</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+          <div class="col s6">
+            <h2>Read a memory</h2>
+            <section>
+              <a class="waves-effect waves-light btn" id="load">Load memories</a>
+              <ul class="memories-list" id="memoriesList">
+                <li>No memories found...</li>
+              </ul>
+            </section>
+          </div>
+          <div class="col s6">
+            <h2>Input a memory</h2>
+            <form class="col s12" id="addForm">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="Your name" id="author" type="text" class="validate">
+                  <label for="author">Author</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="12" id="age" type="number" class="validate">
+                  <label for="age">Age</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="Valencia" id="location" type="text" class="validate">
+                  <label for="location">Location</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea placeholder="When I was 12 and I..." id="memory" class="materialize-textarea"></textarea>
+                  <label for="memory">Memory</label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <!-- Call script -->
+    <script id="memory-template" type="text/x-handlebars-template">
+      <li class="list-group-item">
+        {{log this}}
+        <p>Author: {{author}}</p>
+        <p>Age: {{age}}</p>
+        <p>Location: {{location}}</p>
+        <p>Memory: {{memory}}</p>
+        <button type="button" class="btn delete-button" data-id="{{_id}}">&times;</button>
+      </li>
+    </script>
+
+
+    <!-- Init jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+
+    <!-- Init ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <!-- Init materialize -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="scripts/materialize.js"></script>
+
+    <!-- Init main javascript -->
+    <script type="text/javascript" src="scripts/main.js"></script>
+
+  </body>
+</html>

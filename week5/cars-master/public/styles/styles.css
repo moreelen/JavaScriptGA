@@ -1,0 +1,50 @@
+body {
+  padding-bottom: 15px;
+}
+/* HEADER */
+.main-header {
+  margin-bottom: 15px;
+}
+
+/* MAIN */
+.container div[class^="col"] {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.load-button {
+  margin-bottom: 15px;
+}
+
+.car-list li {
+  padding: 15px;
+}
+
+.car-list.uninitialised {
+  text-align: center;
+}
+
+.car-list.loading .spinner {
+  font-size: 5rem;
+  animation: spin linear 1s infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.car-list .delete-button {
+  float: right;
+}
+
+
+/*
+
+
+.car-list.loading {
+  text-align: center;
+}
+
+
+*/
