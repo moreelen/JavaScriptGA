@@ -1,0 +1,88 @@
+*** ES6/7/8 (ESNext) ***
+
+Transpilers used for old browsers who couldn't handle old code. Eg babel, closure
+
+Module import is eg. this:
+var express = require('express');
+You could call your own:
+var myModule = require('./myModule.js');
+But you don't need the .js if it's a local call so you could just say ./myModule
+Then call it up as an object and call functions in it like myModule.function().
+
+With ES6 this becomes simpler:
+import express, { static } from './myModule';
+
+In the export file you will have module.exports = { thing you are exporting here }
+If you are doing multiple call exports.function = { ... }; and exports.phone = '....'; and exports. ...
+Then you can call it in the import file with myModule.function.
+
+With ES6 this becoems simpler:
+Incude export default = ... for the default file to be imported when someone calls:
+To import: import express from 'express';
+import myModule from './myModule';
+If you do export a, export b.
+In the import file you can do import {a,b} from './myModule';
+Same as calling static in express.
+This is called destructuring.
+
+The reason we do this is because in future main.js should be tiny.
+You should import everything else.
+
+Node builds a dependency tree which it structures when it sees require in the code.
+The browser can't handle require.
+
+let is block-scoped
+block scoped means they exist within an object (block) scope
+meanwhile var exists within a function scope.
+let and consts don't get hoisted. var does.
+Therefore you need to call let and const at the beginning of the code.
+use var for things used across the programme. use let and const inside blocks.
+start using let and then change to const once you are almost done with your code
+
+Fat arrows good for async calls.
+To return an object wrap () around it eg guest => ({ name: guest.name })
+
+Destructuring an object to make an object's keys generally available.
+When you destructure you can change the name of keys.
+
+iterable is what lets you iterate over some things.
+For it to be iterable it needs Symbol(Symbol.iterator): function values()
+To find it open __proto__ in the object tree.
+for...of will become the for loop to rule them all... but it's not there yet so don't use it.
+Unless it's to replace for...in loops
+
+Symbol has an id in it which is why the same named key won't overwrite.
+
+When you execute a generator you get an iterator.
+On their own you probably won't use but it works like a step by step process.
+You use it under the hood when you speak to servers.
+
+Proxy = standing in for something else.
+Eg. reading and writing to a proxy object to shield the original object.
+
+As long as you are always referencing an object, it is never garbage collected.
+But with weakset and weak structures garbage collected.
+However you cannot get out of weak objects.
+You can't prove they exist. It's like a double negative.
+
+map!
+In normal objects you can have strings and symbols as a key.
+But with maps you can have objects with objects, functions with functions, etc.
+Eg associate a person object with a locker object
+Eg a list of coins and a list that counts each
+
+Promise = hey hold this, in a minute it is going to change into a thing.
+
+Calling an async inside an asynch which is the pyramid of death.
+Promises make it nicer because you do a promise then and catch.
+Generators: A way to pause so you don't run code that cannot run without the right data.
+Await = an enhancement on promises.
+asynch function askMom() { // tells the code that this is asynch.
+  try {
+    const phone = await willIGetNewPhone;
+    const message = await showOff(phone); // dont run until it has the data
+  }
+  catch (error) { }
+}
+
+http://phaser.io/
