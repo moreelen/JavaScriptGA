@@ -84,14 +84,20 @@ app.post('/memory', function(req, res) {
 });
 
 // Update a memory.
-/* app.patch('/updateMemory/:id', function(req, res) {
-  memory.update({ _id: req.params.id }, function (err) {
+app.put('/memory/:id', function(req, res) {
+  var memoryToBeUpdated = req.params.id;
+  console.log('memoryToBeUpdated', memoryToBeUpdated);
+  var updates = req.body;
+  console.log('updates', updates);
+  memory.findOneAndUpdate({
+    _id: memoryToBeUpdated
+  }, updates, function (err, req, memories, result) {
     if (err) {
       return res.status(500).send(err);
     }
     return res.status(202).send('Memory updated.');
-  })
-});*/
+  });
+});
 
 // Delete a memory.
 app.delete('/memory/:id', function(req, res) {
