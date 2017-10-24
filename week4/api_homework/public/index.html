@@ -25,18 +25,13 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-        <div class="row">
-          <div class="col s12">
-            <h2>Read a memory</h2>
-            <section>
-              <a class="waves-effect waves-light btn" id="load">Load memories</a>
-              <ul class="memories-list" id="memoriesList">
-                <li>No memories found...</li>
-              </ul>
-            </section>
-          </div>
-        </div>
+      <section id="memories">
+        <ul class="memories-list" id="memoriesList">
+          <li>No memories found...</li>
+        </ul>
+        <a class="waves-effect waves-light btn" id="load">Load memories</a>
+      </section>
+      <div class="container">
         <div class="row">
           <div class="col s12">
             <h2>Input a memory</h2>
@@ -71,16 +66,14 @@
             </form>
           </div>
         </div>
-    </div>
+      </div>
 
     <!-- Call script -->
     <script id="memory-template" type="text/x-handlebars-template">
       <li class="list-group-item">
         {{log this}}
-        <p>Author: {{author}}</p>
-        <p>Age: {{age}}</p>
-        <p>Location: {{location}}</p>
-        <p>Memory: {{memory}}</p>
+        <p>{{author}}, {{age}}, {{location}}</p>
+        <p>{{memory}}</p>
         <button type="button" class="btn delete-button" data-id="{{_id}}">&times;</button>
       </li>
     </script>
