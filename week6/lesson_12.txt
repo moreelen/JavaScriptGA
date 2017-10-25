@@ -1,0 +1,5 @@
+Websockets
+Used for chat using socket.io
+Bots! Machines talking to machines
+Graphs
+Firebase - a public database
