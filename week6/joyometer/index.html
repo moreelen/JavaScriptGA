@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Joy-ometer</title>
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
+    <h1>Joy-ometer</h1>
+
+    <div id="chart">
+      <svg></svg>
+    </div>
+
+    <div class="controls" class="controls">
+      <button class="btn btn-success" id="happy">Happy</button>
+      <button class="btn btn-warning" id="ok">Ok</button>
+      <button class="btn btn-danger" id="sad">Sad</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -10,7 +10,6 @@ $(function(){
   var $location = $("#location");
   var $memory = $("#memory");
   var colours = ['#556270', '#4ECDC4', '#C7F464', '#FF6B6B', '#C44D58'];
-  var $colourMemories = $("#memories li");
   // console.log('$memoriesList', $memoriesList);
   // console.log('$colourMemories', $colourMemories);
 
@@ -34,6 +33,7 @@ $(function(){
     memories.forEach(function(memory){
       $memoriesList.append(memoryTemplate(memory));
     });
+    colourMemory();
   }
 
   function addMemory(memory){
@@ -63,16 +63,27 @@ $(function(){
   }
 
   function colourMemory(){
-    console.log('colour:', colours[randomColour()]);
-    //$colourMemories.forEach(function(memory){
-    //  console.log(memory);
+    var $colourMemories = $("#memories li");
+    for (i=0; i < $colourMemories.length; i++){
+      console.log($colourMemories[i]);
+      console.log('colour:', colours[randomColour()]);
+      //$colourMemories[i].css({
+      //  "background-color" : colours[randomColour()]
+      //});
+    }
+
+    //$("#memories li").css({
+    //  "background-color" : colours[randomColour()]
+    //});
+    //$colourMemories.forEach(function(li){
+    //  console.log(li);
     //});
     //.css({
     //  "background-color" : colours[randomColour()]
     //});
   }
 
-  colourMemory();
+  // colourMemory();
 
   $loadButton.on('click.load', function(){
     // console.log('clicked');

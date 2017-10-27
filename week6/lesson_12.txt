@@ -3,3 +3,47 @@ Used for chat using socket.io
 Bots! Machines talking to machines
 Graphs
 Firebase - a public database
+
+Process when you clone from git:
+Clone and then go to command line and do
+npm i
+
+Difference between REST and websockets.
+REST is like text messaging.
+Websockets are like being on a phone to someone. Connection is constant.
+
+TO START A SERVER:
+run the code: npm start
+then in one command line window hit: mongo
+in the other command line window hit: mongod
+
+https://socket.io/
+
+hubot is the base of most bots. created by github
+directory on github: slackapi/hubot-slack
+
+botkit is the best library for bots!
+
+https://threejs.org/
+library for canvassing
+
+http://snapsvg.io/
+draw svg paths
+
+https://d3js.org/
+data library! :D <3
+All financial companies love it if you can do this
+
+http://nvd3.org/index.html
+Wrapper on d3.
+
+http://www.chartjs.org/
+chart library
+
+FIREBASE
+https://console.firebase.google.com
+Socketed database server with a thin handling layer
+Channel on outube called firecasts web which teaches you.
+
+To talk directly from your website to firebase
+As we are talking directly we do not talk on
