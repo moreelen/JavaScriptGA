@@ -1,0 +1,34 @@
+S3 POCKETS
+Your own personal CDN.
+Put all your files in there so you can call that URL and don't have to host it on your server.
+
+Now most of the control happens on the client side
+since doing HTML request to the server is costly.
+
+SPAs: The site loads synchronously first then the rest is asynchronous.
+Ask the server for the first page then the rest is calculated on the client.
+
+REACTive programming is about watching data.
+I have a collection of things. When I press a button, change this collection of things.
+It is constantly watching and then redraws the page for you.
+You don't have to traverse the DOM to change bits one by one.
+
+React belongs to Facebook
+Angular is Google's
+Vue.js - favourite
+Backbone to monitor the data but otherwise is old
+
+** Component-based architecture **
+Break your HTML into separate files and call up the bits in the index.hbs
+.hbs which is like PHP
+You can move components about the page to change the layout.
+
+** Virtual DOM **
+(there used to be a shadow DOM)
+Changing the DOM is costly. Think of a puzzle where you are trying to put in one puzzle piece at a time.
+Batch the changes you want to make to the DOM.
+Eg. create a list in memory with all the items and push in the entire list at once
+Virtual DOM is an in memory DOM. Does all the calculations in memory.
+Then you re-render and it pushes the whole thing into the real DOM.
+
+reactjs.org
