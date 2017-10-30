@@ -32,3 +32,60 @@ Virtual DOM is an in memory DOM. Does all the calculations in memory.
 Then you re-render and it pushes the whole thing into the real DOM.
 
 reactjs.org
+Written in normal JS.
+Two libraries react.min.js and react-dom.min.js which actually pushes to the DOM.
+Plain react can operate independent of the browser.
+window.Reach and window.ReactDOM exist in the window.
+
+State is the data that is watched.
+this.state = {secondsElapsed: 0}
+
+Then render.
+render(){
+return(
+<div>SecondsElapsed {this.state.secondsElapsed}</div>
+);
+}
+
+In between, change the state.
+tick(){
+this.setState((prevSTate) => ({
+secondsElapsed: prevState.secondsElapsed + 1
+}));
+}
+
+REACT notices that the state has changed and runs the render again.
+Once it is used, it deletes the state data. Redux keeps an instance in memory.
+
+Live Cycle Methods
+They watch the life cycle of a compoent.
+When it was born, when it is layed out, when it is written on the page for the first time,
+when it is updated, when it is removed. You can call all these instances and do things to them.
+eg. compenentDidMount() componentWillMount() componentDidntMount()
+
+Separate the list to a separate component then each item into a separate component.
+Useful way to find out where the errors are coming from sinc they are split up.
+
+REACT detector - chrome extention.
+INSPECTOR HAS REACT DETECTOR!!! And you can see all the components and all the things they are called.
+
+Download node and git to the raspberry pi
+
+Higher Order Components handle all the data and calculations.
+Ordinary Components handle all the text and puts the values in the text.
+Declare it <myComponent /> this is a JSX tag.
+
+Props = properties
+data that is passed into an element.
+When state changes in parent, it might change the children and cause rerendering in children.
+Info that the component needs to run.
+eg.name="James"
+dogAge={age*7}
+
+State is the current data of that component.
+It is internal and private. Each component should have its own state.
+You are not passing states around.
+When you pass states you use REDUX not REACT.
+
+Props calculate in advance and put in.
+State is the data of that particular thing that changes when interacted with.
