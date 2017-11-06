@@ -1,0 +1,70 @@
+README.md
+- description
+- installation
+- running
+(- technologies used)
+
+
+npm install -g create-react-app
+https://github.com/facebookincubator/create-react-app
+Already sets up a basic react page for you.
+And it reacts when you save so you can see the changes instantly.
+
+yarn checks if an npm already exists in your local files and just copies it.
+https://yarnpkg.com/lang/en/
+
+** REDUX **
+REACT only puts stuff on the screen. It doesn't deal with data.
+MCV - React it is only View.
+Redux does the model and controller bit.
+
+Two-day data binding - div fill up while you were typing. Gets complex.
+Use Flux instead.
+
+FLUX
+View is a piece of HTML saying "hello " + name.
+Where do we get the name? From the store which has the data.
+Flux might have many stores. Eg a store for friends, a store for cars, etc.
+Everything that happens is an action. Eg. Load a page.
+When actions come in you need something to direct it to the store.
+That is the dispatcher.
+The store tells the dispatcher: hey I need to know about these things.
+
+REDUX
+Have everything in one store therefore no need for a dispatcher.
+Actions create an action object. They include a type which you can use to call it.
+Send it to the store and it goes through a reducer function (which is the switch statement).
+
+
+Pure function = a function that will always run.
+Impure function example: a function with an ajax call in it.
+An ajax call could fail there fore it is not pure.
+http://redux.js.org/docs/introduction/
+
+ALL ACTIONS REQUIRE A TYPE!
+With return we are pushing out the old state with the new one
+We are not setting state += 1 because the state is constant.
+We set state +1 because we are pushing it out.
+Always add a default just in case none of those things apply.
+
+REDUX TOOLS
+State is the store. Actions come in on the side and can reverse time by going through them.
+https://github.com/wellyshen/react-cool-starter
+run yarn start:production first.
+lint tests for errors and bugs in your code.
+yarn test - write tests into your code. yarn will run those tests to check if your code runs.
+
+Instead of welly hen's code which sets up the file structure,
+you can also use Mern which sets up the database and mongo in addition to the standard files.
+
+Docker creates a container.
+You have a piece of code on your machine and it runs well.
+You send it to the server and you get an environment break.
+By putting it in a container it seals the environment so it can't break.
+It's like a package with set input and outputs.
+Instead of having your application straigh ton top of the OS and architecture,
+you have a docker on it which generates and translates from the app.
+In a container you will have a node base and your app ontop.
+All servers have docker apps and your container goes into it.
+
+Amazon ECS Elastic Container Service

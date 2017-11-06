@@ -1,0 +1,171 @@
+OBJECT THEORY
+
+custom getter has the get keyword eg var rapper = { get rapname(){ ... } }
+it maps to a property not a function so to call it: console.log(rapper.rappername)
+
+var friend = {
+  firstname: 'Fred',
+  lastname: 'Bloggs',
+
+  // This is a setter.
+  // When a value is passed in later, it sets the age to either 'too old' or 'too young'
+  set ageBracket(val) { // Takes in a value.
+    if (val > 40) {
+      this.age = 'too old'; // This points to the friend object.
+    } else {
+      this.age = 'too young';
+    }
+  },
+
+  // TThis is a getter.
+  get fullname() {
+    // Always remember to return!
+    return this.firstname + ' ' + this.lastname;
+  }
+}
+
+// This will return fullname Fred Bloggs
+console.log('fullname', friend.fullname);
+
+friend.ageBracket = 50;
+// Note we do not use friend.ageBracket(50)! Because it is not a function and can't be executed.
+// They are properties on an object therefore you need to assign it like an object.
+console.log('friend', friend);
+
+Javascript doesn't have private and public objects therefore we do things to trick it.
+This is one of the tricks we use.
+
+Enumerable means that they have numbers so they can be recognised in a for...in loop.
+Remove their enumerability so for..in loops skip them.
+Writeable means that they are read-only.
+Configurable is that it cannot be deleted.
+
+Object.defineProperty( ob, 'c', { value: 3, enumerable: false, ... });
+ob is the name. c is the key. So a bit like: ob.c = ...
+The value: 3 is a bit like saying:
+let ob = {
+  c: 3
+}
+or ob.c = 3.
+
+EXAMPLE
+const ob = {
+
+};
+
+// When you set it normally enumerable, configurable and writable are set automatically to true.
+ob.name = 'Fred';
+
+// console.log('name', ob.name);
+
+console.log(Object.getOwnPropertyDescriptor(ob, 'name'));
+// This returns an object with extra keys you did not originally set.
+// Configrable, enumerable and writeable.
+
+Object.defineProperty(ob, 'age', {
+  // This is a configuration object. It sets those extra keys you otherwise cannot see.
+  value: 38,
+  // Must set enumerable to true to make sure that the for loop can see it.
+  enumerable: true,
+  // Must set configruable to true in order for it to be deleteable.
+  configurable: true,
+  // Must set writeable to true in order to change this value.
+  writable: true
+});
+
+for(const thing in ob) {
+  console.log('thing', thing);
+}
+
+// delete ob.age;
+
+ob.age = 200;
+
+console.log('ob', ob);
+
+Arrays are actually an object with { 0: 'value', 1: 'value', 2: 'value', ... }
+
+var obj = {a: 1, b: 2, c: 3}
+for (let prop in obj) { ... } Will go through all the keys in the object.
+Careful not to do for (prop) because that pushes the prop to global.
+
+var me = {
+  name: 'Rosa',
+  age: 25
+};
+
+for (let prop in me) {
+  console.log('prop', prop);
+  // This returns prop name then prop age.
+  console.log('value', me[prop]);
+  // This returns value Rosa then value 25.
+}
+
+When you do a for in with an array it also goes through all the hidden keys and variables.
+To make sure it only looks through your object, not the prototype chain you have to add a check:
+
+var obj = [obj1, obj2, obj3];
+for (var prop in obj) {
+  if (ob.hasOwnProperty(prop) { ... });
+}
+
+var obj = {a: 1};
+// var copy = obj;
+// When you change something in obj, copy it changes it to copy too.
+
+var copy = Object.assign({}, obj);
+// This only makes a copy of it so you can change it without affeting the other one.
+
+When assigning, if it has the same key then it overrides with the latest value.
+
+PreventExtension, Seal, Freeze
+https://codepen.io/jmsherry/pen/gWYbRq?editors=0010
+Extension - cannot add new key values.
+Seal - extension + can't delete and can't change definitions.
+Freeze - can't do anything, not even change values.
+Use this to stop people from taking your data.
+
+Things are based on other things
+'Tutor' is based on 'Person'
+'Mac' is based on 'Computer'
+In javascript we have a prototype chain.
+What you were basing your thing on goes in the prototype chain.
+Eg. Tutor has Person in it's prototype.
+Eg. An array has all the object stuff in its prototype chain.
+
+var person = { name: 'Rosa', age: 25, isDeveloper: false, isCleaner: false };
+var tutor = Object.create(person);
+var cleaner = Object.create(person);
+tutor.isDeveloper = true;
+cleaner.isCleaner = true;
+console.log('cleaner is a cleaner', cleaner.isCleaner); // returns true
+console.log('cleaner is a developer', cleaner.isDeveloper); // returns false
+Tutor/Cleaner will have a prototype chain with all the person data.
+Tutor will say that isDeveloper is true but the prototype chain will say false.
+
+Code looks in the object first. If it can't find it it goes one level down the prototype chain.
+
+Method overloading - more sophisticated functions in higher levels so it overrides lower things in the prototype chain.
+
+NEVER EDIT THE PROTOTYPE CHAIN DIRECTLY! (found as a key __proto__)
+
+Factory functions rather than folding things into prototype chains.
+Classes make sure all the prototypes are consistence.
+An object is an instance of a class. Eg. James is an instance of Human.
+JS doesn't do classes.
+Started a war between object orientated programmers and function orientated programmers.
+
+Object orientated coders added the new keyword.
+Used to make sure that all new objects have the same properties.
+Used with contructor functions.
+Handy as they have only one object with all the functions which it reffers to.
+
+function Snake(name) { private things in here }
+Snake.prototype.speak = function() { public things }
+Whenever you see the . it means it's a public thing.
+
+The Factory Pattern
+codepen.io/jmsherry/pen/xPxLpB
+Start with something basic then build on top just what you need.
+If else statements and check if you want to inherit certain things or not.
+When done constructing return the object.

@@ -89,3 +89,58 @@ When you pass states you use REDUX not REACT.
 
 Props calculate in advance and put in.
 State is the data of that particular thing that changes when interacted with.
+
+Syntax for constructors and classes.
+class Animal {
+  constructor(){ // Instruction on how you create an Animal.
+
+  }
+  hello(){ // What an Animal can do.
+
+  }
+  goodbye(){
+
+  }
+}
+
+When writing a constructor declare what it is and then you have to bind the functions to it.
+super(props) // Pass the props to react.component.
+this.state = {items: [], text: ''}; // Define the state
+this.someMethod = this.someMethod.bind(this); // Makes sure you are talking about this object not another.
+
+HASN'T BEEN MOUNTED YET HENCE HASN'T BEEN BUILT IN DOM
+Do not do ajax code from componentWillMount() as the DOM hasn't been mounted yet.
+Changing things here does not re-render
+You are sorting out info here. set the state here. this.setState({ });
+
+render pushes the JSX into the DOM.
+Once you render you cannot set the state.
+
+JSX is like HTML but it needs to be compiled.
+Only takes in a single node / root element means you cannot do:
+return(
+<div>Hello</div>
+<div>Bye</div> // you must delete one of these
+)
+You can do:
+return(
+<ul>
+  <li></li>
+</ul>
+)
+You cannot have hyphens in JSX.
+HTML: <p data_age=''>...
+JSX: <p dataAge= ...
+Cannot type class like normal HTML. Have to type className.
+To do on click operation do:
+<button onClick={this.someMmethod}>
+
+componentWillMount() { } look at all your data and find out how to manipulate it.
+
+componentDidMount() { } it mounted therefore take other actions like AJAX calls.
+
+https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/introduction.html
+
+Learn REACT router
+
+react-starter-kit to start doing react. Run it and it writes out the files for you.
