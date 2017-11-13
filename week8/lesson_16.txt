@@ -1,0 +1,21 @@
+Classes
+
+class Dog { ... };
+class Dog {
+  constructor(name, breed){
+    this.name = name;
+    this.breed = breed;
+  } // DO NOT ADD COMMAS BETWEEN THE METHODS
+  speak(){ ... }
+  static getAGeinDogYears(age){
+    return age * 7;
+  }
+}
+You will get hoisting issues defining classes. Define classes first and use them second.
+
+Static methods are in the class but they do not get outputted.
+Use it to calculate things within the class.
+Eg. Dog.getAGeinDogYears(3) will return 3 * 7.
+
+class Dog extends Animal { ... }; cretes a subclass.
+Must call super at the beginning of the construtor to call up the features of the original class.
