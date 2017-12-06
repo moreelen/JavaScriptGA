@@ -1,0 +1,68 @@
+** Code Testing and Analysis **
+
+Writing good test code is an artform. It takes time.
+
+ESLINT
+eslint is a plugin for node.js
+Globbing:
+* are wild cards
+** recursively go down.
+! not these files.
+Rules - what your coding rules are eg. use triple equals instead of double.
+eslint.org/docs has a list of all the types of rules you can add.
+
+You can have multiple .eslintc.js files in different folders.
+Whichever one is closest to the .eslintc.js file in the tree gets used for that .js file.
+
+Globals - which varialbes are called from other files.
+
+package.json has to include the esling-plugin-import!
+"devDependencies": {
+  "eslint":
+  "eslint-config-airbnb-base":
+  "esling-plugin-import":
+}
+
+A lot of this is reading docs and fiddling. ALWAYS READ DOCS!
+
+STATIC TYPE CHECKING
+typescript checks that all your variables are in the same format as needed.
+Write in Typescript - creates a .ts file.
+Typescript changes your code when building into javascript.
+
+Flow also does this. You state what format you want your variables to be and it errors if they are wrong.
+Once installed put // @flow at beginning of code.
+Add liner-flow package to atom so it can check your code directly.
+flow check --all checks everything.
+flow.org
+
+Continuous Integration
+Send code to other entity > Test through eg. app.codeship.com
+Can include your flow rules too
+
+function name (a: string, b: string) : string { ... }
+parameter name : type
+
+USE THESE FOR COMMERCIAL CODE!
+If it's for personal projects, don't worry too much about it but try to make a habit of it.
+
+Unit testing - testing functions.
+Component testing - functions work together (outputs)
+Integration testing - putting it in codebase/web
+System testing - end-to-end testing, use computers to run through flows.
+Acceptance testing - are the clients happy?
+Alpha testing - manually test it works
+Beta testing - different versions of the website
+
+Red/green development. Parallel file which is the test file.
+In it write bit by bit the code that failed, starting with the tiniest version of the code.
+Test it step by step.
+
+jasmine.github.io - a bit old an problematic but still works for basic things.
+Jest - fb testing, has cool features like snapshot testing which shows you the HTML that was produced.
+Mocha, Sinon
+
+npm supertest is a wrapper on superagent which is a server.
+Can write tests to request from the server and check if it called the right things.
+
+npm test to just test
